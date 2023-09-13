@@ -10,16 +10,17 @@ Y = 0  #right color, wrong place
 
 colors = ['R','G','B','Y','P','W']
 
- """4 is the number of color we have to guess, to change this number,
+"""4 is the number of color we have to guess, to change this number,
 you also have to add an Fith in the while, or del the fourth"""
-code = random.sample(colors,4)
+#code = random.sample(colors,4)
+code = ['Y','W','B','B']
 
 print(code)
 print("Colors are Red : R, Green : G, Blue : B, Yellow : Y, Purple : P and White : W.\n")
 
 while (play):
     while(tries < maxTries):
-        code_test = code.copy()  #copying the code to be able to change it without killing the real one later
+        code_test = code.copy()#copying the code to be able to change it without killing the real one later
         comb = []
                 #to try and guess 5 colors, just add a fifth
         first_l = input("Write your first letter :  ")
@@ -33,15 +34,16 @@ while (play):
                      
         fourth_l = input("Write your fourth letter :  ")
         comb.append(fourth_l)
+        comb_test = comb.copy()
         
         print(comb)
         for i in range(len(code_test)):
-            if comb[i] == code_test[i]:
+            if comb_test[i] == code_test[i]:
                 X +=1
-                code_test[i] = 0             #changing the letters to 0 already compared to avoid duplicates in Y
         for i in range(len(code_test)):
-            for g in range(len(comb)):
-                if comb[g] == code_test[i] and g!=i:
+            for g in range(len(comb_test)):
+                if comb_test[g] == code_test[i] and g!=i:
+                    comb_test[g] = 1          #changing the letters to 1 already compared to avoid duplicates in Y
                     code_test[i] = 0          #changing the letters to 0 already compared to avoid duplicates in Y
                     Y +=1
         tries += 1
