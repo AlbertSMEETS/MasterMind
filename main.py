@@ -3,15 +3,15 @@ import string
 
 play = True
 
-X = 0  #couleurs dont le placement est correct
-Y = 0  #couleurs bonne mais le placement est incorrect
+X = 0  #right color, right place
+Y = 0  #right color, wrong place
 
 colors = ['R','G','B','Y','P','W']
 code = random.sample(colors,4)
 print(code)
 
 tries = []
-        #Pour jouer avec 5 couleurs, il suffit de rajouter une ligne fifth
+        #to try and guess 5 colors, just add a fifth.
 first_l = input("Write your first letter :  ")
 tries.append(first_l)
              
