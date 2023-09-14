@@ -6,6 +6,7 @@ def main():
     play = True
     tries = 0
     maxTries = 12 #Max tries 
+    win = 1
     
     X = 0  #right color, right place
     Y = 0  #right color, wrong place
@@ -34,7 +35,7 @@ def main():
         tries = 0
         print("Your score is " + str(score))
         print("You have played  " + str(nb) + " times")
-        while(tries < maxTries):
+        while(tries < maxTries and win !=0):
             code_test = code.copy()#copying the code to be able to change it without killing the real one later
             comb = []
                     #to try and guess 5 colors, just add a fifth
@@ -66,6 +67,9 @@ def main():
             print(str(triesLeft) + " tries left")
             print ("X = " + str(X))
             print ("Y = " + str(Y))
+            if X==4:
+                print("You have won !!")
+                win = 0
             X = 0 
             Y = 0
         if tries == maxTries:
@@ -105,4 +109,5 @@ def main():
             file.close()
         elif(answer == "3"):
             play = False        #Stopping the game
+        
 main()
