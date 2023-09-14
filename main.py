@@ -3,7 +3,7 @@ import string
 
 play = True
 tries = 0
-maxTries = 12 #Max tries 
+maxTries = 2 #Max tries 
 
 X = 0  #right color, right place
 Y = 0  #right color, wrong place
@@ -12,13 +12,13 @@ colors = ['R','G','B','Y','P','W']
 
 """4 is the number of color we have to guess, to change this number,
 you also have to add an Fith in the while, or del the fourth"""
-#code = random.sample(colors,4)
-code = ['Y','W','B','B']
+code = random.sample(colors,4)
 
 print(code)
 print("Colors are Red : R, Green : G, Blue : B, Yellow : Y, Purple : P and White : W.\n")
 
-while (play):
+while play:
+    code = random.sample(colors,4)
     while(tries < maxTries):
         code_test = code.copy()#copying the code to be able to change it without killing the real one later
         comb = []
@@ -52,5 +52,11 @@ while (play):
         print ("X = " + str(X))
         print ("Y = " + str(Y))
         X = 0 
-        Y = 0 
-    play = False
+        Y = 0
+        
+    answer = input("Voulez vous rejouer, reinitialiser les stats ou quitter ? 1/2/3\n")
+        
+    if(answer == "1"):
+        tries = 0
+    elif(answer == "3"):
+        play = False
