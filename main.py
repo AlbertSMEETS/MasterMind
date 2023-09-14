@@ -5,19 +5,19 @@ import string
 def main():
     play = True
     tries = 0
-    maxTries = 2 #Max tries 
+    maxTries = 12 #Max tries 
     
     X = 0  #right color, right place
     Y = 0  #right color, wrong place
     
     colors = ['R','G','B','Y','P','W']
         
-    file = open(".score.txt", "r")
+    file = open(".score.txt", "r")  #Oppening file and getting the score in score variable
     data = file.readlines()
     score = int(data[0].strip("\n"))
     file.close()
                 
-    file = open(".parties.txt", "r")
+    file = open(".parties.txt", "r")    #Oppening file and getting the numbers of parties in nb variable
     data = file.readlines()
     nb = int(data[0].strip("\n")) 
     file.close()  
@@ -39,21 +39,21 @@ def main():
             comb = []
                     #to try and guess 5 colors, just add a fifth
             first_l = input("Write your first letter :  ")
-            comb.append(first_l)
+            comb.append(first_l)  #Adding the first letter guessed by the player in the list
                          
             second_l = input("Write your second letter :  ")
-            comb.append(second_l)
+            comb.append(second_l)   #Adding the second letter guessed by the player in the list
                          
             third_l = input("Write your third letter :  ")
-            comb.append(third_l)
+            comb.append(third_l)    #Adding the third letter guessed by the player in the list
                          
             fourth_l = input("Write your fourth letter :  ")
-            comb.append(fourth_l)
-            comb_test = comb.copy()
+            comb.append(fourth_l)   #Adding the fourth letter guessed by the player in the list
+            comb_test = comb.copy() #copying the combination to be able to change it without killing the real one later
             
             print(comb)
             for i in range(len(code_test)):
-                if comb_test[i] == code_test[i]:
+                if comb_test[i] == code_test[i]: 
                     X +=1
             for i in range(len(code_test)):
                 for g in range(len(comb_test)):
@@ -73,7 +73,7 @@ def main():
             score += tries #Adding the number of tries to the score
 
                 
-            file = open(".score.txt", "w")
+            file = open(".score.txt", "w") #Adding the score in the file
             file.write(str(score))
             file.close
                 
@@ -81,7 +81,7 @@ def main():
             nb += 1 #Adding one the number of parties played
 
                 
-            file = open(".parties.txt", "w")
+            file = open(".parties.txt", "w") #Adding the number of parties in the file
             file.write(str(nb))
             file.close
             
@@ -94,12 +94,12 @@ def main():
         elif(answer == "2"):
             score = 0                     #Reset scores and parties
             nb = 0
-            file = open(".score.txt", "w")
+            file = open(".score.txt", "w") #Reseting the score in the file
             file.write(str(0))
             print("Score has been reset")
             file.close()
             
-            file = open(".parties.txt", "w")
+            file = open(".parties.txt", "w")    #Reseting the number of parties in the file
             file.write(str(0))
             print("Parties has been reset")
             file.close()
