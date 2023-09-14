@@ -69,23 +69,21 @@ def main():
             X = 0 
             Y = 0
         if tries == maxTries:
-            file = open(".score.txt", "r")
-            data = file.readlines()
-            score = int(data[0].strip("\n")) + tries
-            file.close()
+
+            score += tries #Adding the number of tries to the score
+
                 
             file = open(".score.txt", "w")
             file.write(str(score))
-            file.close()
+            file.close
                 
-            file = open(".parties.txt", "r")
-            data = file.readlines()
-            nb = int(data[0].strip("\n")) + 1
-            file.close()
+
+            nb += 1 #Adding one the number of parties played
+
                 
             file = open(".parties.txt", "w")
             file.write(str(nb))
-            file.close()
+            file.close
             
         print("Your score is " + str(score))
         print("You have played  " + str(nb) + " times")
